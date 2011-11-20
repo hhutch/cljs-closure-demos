@@ -1,0 +1,15 @@
+    .goog-tooltip {
+      background: lightyellow;
+      color: black;
+      border: 1px solid black;
+      padding: 1px;
+      font: menu;
+    }
+    .tooltip {
+      background: lightyellow;
+      color: black;
+      border: 1px solid black;
+      padding: 5px;
+      font: menu;
+      width: 400px;
+    }
