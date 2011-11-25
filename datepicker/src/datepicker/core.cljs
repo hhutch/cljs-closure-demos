@@ -39,6 +39,42 @@
                                                            "none"))))
     (. goog.dom (setTextContent (dom/getElement "label_custom")
                                 (.. dp-iso-8601 (getDate) (toIsoString true))))
+    (.listen goog.events (dom/getElement "ck-0")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setShowFixedNumWeeks (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-1")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setShowOtherMonths (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-2")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setExtraWeekAtEnd (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-3")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setShowWeekNum (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-4")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setShowWeekdayNames (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-5")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setAllowNone (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-6")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setShowToday (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-7")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setUseNarrowWeekdayNames (= true (.checked check-clicked)))))))
+    (.listen goog.events (dom/getElement "ck-8")
+                         goog.events.EventType.CLICK
+                         (fn [e] (this-as check-clicked
+                                   (. dp-custom (setUseSimpleNavigationMenu (= true (.checked check-clicked)))))))
     ;; ## English (US)
     (. dp-en-US (render (dom/getElement "widget_en_US")))
     (.listen goog.events dp-en-US
