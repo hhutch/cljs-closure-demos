@@ -24,46 +24,46 @@
       (.registerShortcut "G S" "g s")
       (.registerShortcut "S" "s")
       (.registerShortcut 
-                            "GOOG"
-                            (.G goog.events.KeyCodes) NONE
-                            (.O goog.events.KeyCodes) NONE
-                            (.O goog.events.KeyCodes) NONE
-                            (.G goog.events.KeyCodes))
+        "GOOG"
+        (.G goog.events.KeyCodes) NONE
+        (.O goog.events.KeyCodes) NONE
+        (.O goog.events.KeyCodes) NONE
+        (.G goog.events.KeyCodes))
       (.registerShortcut 
-                            "CTRL_A" (.A goog.events.KeyCodes) CTRL)
+        "CTRL_A" (.A goog.events.KeyCodes) CTRL)
       (.registerShortcut 
-                            "BC" 
-                            (.B goog.events.KeyCodes)
-                            NONE
-                            (.C goog.events.KeyCodes))
+        "BC" 
+        (.B goog.events.KeyCodes)
+        NONE
+        (.C goog.events.KeyCodes))
       (.registerShortcut 
-                            "BD" 
-                            (.B goog.events.KeyCodes)
-                            NONE
-                            (.D goog.events.KeyCodes))
+        "BD" 
+        (.B goog.events.KeyCodes)
+        NONE
+        (.D goog.events.KeyCodes))
       (.registerShortcut 
-                            "ALT_Q A" 
-                            (.Q goog.events.KeyCodes)
-                            ALT
-                            (.A goog.events.KeyCodes))
+        "ALT_Q A" 
+        (.Q goog.events.KeyCodes)
+        ALT
+        (.A goog.events.KeyCodes))
       (.registerShortcut 
-                            "ALT_Q SHIFT_A" 
-                            (.Q goog.events.KeyCodes)
-                            ALT
-                            (.A goog.events.KeyCodes)
-                            SHIFT)
+        "ALT_Q SHIFT_A" 
+        (.Q goog.events.KeyCodes)
+        ALT
+        (.A goog.events.KeyCodes)
+        SHIFT)
       (.registerShortcut 
-                            "ALT_Q SHIFT_B" 
-                            (.Q goog.events.KeyCodes)
-                            ALT
-                            (.B goog.events.KeyCodes)
-                            SHIFT)
+        "ALT_Q SHIFT_B" 
+        (.Q goog.events.KeyCodes)
+        ALT
+        (.B goog.events.KeyCodes)
+        SHIFT)
       (.registerShortcut "SPACE"
-                            (.SPACE goog.events.KeyCodes))
+        (.SPACE goog.events.KeyCodes))
       (.registerShortcut "HOME"
-                            (.HOME goog.events.KeyCodes))
+        (.HOME goog.events.KeyCodes))
       (.registerShortcut "ENTER"
-                            (.ENTER goog.events.KeyCodes)))
+        (.ENTER goog.events.KeyCodes)))
 
 
 ;    (.apply registerShortcut 
