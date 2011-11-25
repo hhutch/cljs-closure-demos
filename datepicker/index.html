@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>goog.ui.DatePicker</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/datepicker.css">
+</head>
+<body>
+  <h1>goog.ui.DatePicker</h1>
+
+  <table width="100%" summary="for laying out datepickers"><tr><td valign="top">
+  <h2>Default: ISO 8601</h2>
+  <div id="widget_iso_8601"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_iso_8601"></span>
+  <br><br>
+  <h2>Custom</h2>
+  <input type="checkbox" id="ck-0"
+      onclick="dp_custom.setShowFixedNumWeeks(this.checked);" checked><label
+      for="ck-0">ShowFixedNumWeeks</label><br>
+  <input type="checkbox" id="ck-1"
+      onclick="dp_custom.setShowOtherMonths(this.checked);" checked><label
+      for="ck-1">ShowOtherMonths</label><br>
+  <input type="checkbox" id="ck-2"
+      onclick="dp_custom.setExtraWeekAtEnd(this.checked);" checked><label
+      for="ck-2">ExtraWeekAtEnd</label><br>
+  <input type="checkbox" id="ck-3"
+      onclick="dp_custom.setShowWeekNum(this.checked);" checked><label
+      for="ck-3">ShowWeekNum</label><br>
+  <input type="checkbox" id="ck-4"
+      onclick="dp_custom.setShowWeekdayNames(this.checked);" checked><label
+      for="ck-4">ShowWeekdays</label><br>
+  <input type="checkbox" id="ck-5"
+      onclick="dp_custom.setAllowNone(this.checked);" checked><label
+      for="ck-5">AllowNone</label><br>
+  <input type="checkbox" id="ck-6"
+      onclick="dp_custom.setShowToday(this.checked);" checked><label
+      for="ck-6">ShowToday</label><br>
+  <input type="checkbox" id="ck-7"
+      onclick="dp_custom.setUseNarrowWeekdayNames(this.checked);"><label
+      for="ck-7">UseNarrowWeekdayNames</label><br>
+  <input type="checkbox" id="ck-8"
+      onclick="dp_custom.setUseSimpleNavigationMenu(this.checked);"><label
+      for="ck-8">UseSimpleNavigationMenu</label><br>
+  <br>
+  <div id="widget_custom"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_custom"></span>
+  </td>
+  <td valign="top">
+
+  <h2>English (US)</h2>
+  <div id="widget_en_US"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_en_US"></span>
+  <br><br>
+
+  <h2>German</h2>
+  <div id="widget_de"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_de"></span>
+  <br><br>
+
+  <h2>Malayalam</h2>
+  <div id="widget_ml"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_ml"></span>
+  <br><br>
+
+  <h2>Arabic (Yemen)</h2>
+  <div dir=rtl id="widget_ar_YE"></div>
+  <div style="clear: both;">&nbsp;</div>
+  <span id="label_ar_YE"></span>
+  <br><br>
+  </td></tr></table>
+
+  <script src="datepicker.js" type="text/javascript"></script>
+  <script>
+        datepicker.setup();
+  </script>
+</body>
+</html>
