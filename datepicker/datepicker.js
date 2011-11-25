@@ -13809,6 +13809,33 @@ var datepicker = {setup:function() {
     return goog.dom.setTextContent(goog.dom.getElement.call(null, "label_custom"))
   });
   goog.dom.setTextContent(goog.dom.getElement.call(null, "label_custom"), a.getDate().toIsoString(true));
+  goog.events.listen(goog.dom.getElement.call(null, "ck-0"), goog.events.EventType.CLICK, function() {
+    return b.setShowFixedNumWeeks(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-1"), goog.events.EventType.CLICK, function() {
+    return b.setShowOtherMonths(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-2"), goog.events.EventType.CLICK, function() {
+    return b.setExtraWeekAtEnd(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-3"), goog.events.EventType.CLICK, function() {
+    return b.setShowWeekNum(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-4"), goog.events.EventType.CLICK, function() {
+    return b.setShowWeekdayNames(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-5"), goog.events.EventType.CLICK, function() {
+    return b.setAllowNone(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-6"), goog.events.EventType.CLICK, function() {
+    return b.setShowToday(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-7"), goog.events.EventType.CLICK, function() {
+    return b.setUseNarrowWeekdayNames(cljs.core._EQ_.call(null, true, this.checked))
+  });
+  goog.events.listen(goog.dom.getElement.call(null, "ck-8"), goog.events.EventType.CLICK, function() {
+    return b.setUseSimpleNavigationMenu(cljs.core._EQ_.call(null, true, this.checked))
+  });
   c.render(goog.dom.getElement.call(null, "widget_en_US"));
   goog.events.listen(c, goog.ui.DatePicker.Events.CHANGE, function() {
     return goog.dom.setTextContent(goog.dom.getElement.call(null, "label_en_US"))
