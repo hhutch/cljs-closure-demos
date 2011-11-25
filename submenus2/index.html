@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.ui.SubMenu</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/menuitem.css">
+  <link rel="stylesheet" href="../css/menuseparator.css">
+  <link rel="stylesheet" href="../css/submenu.css">
+</head>
+<body>
+  <h1>goog.ui.SubMenu</h1>
+  <p>Demonstration of different hierarchical menus which share its submenus.
+  A flyweight pattern demonstration for submenus.</p>
+  <p><button id="button">Open menu</button></p>
+
+
+  <div id="sharedMenu" class="goog-menu">
+    <div class="goog-menuitem">Google</div>
+    <div class="goog-menuitem">Yahoo</div>
+    <div class="goog-menuitem">MSN</div>
+    <hr>
+    <div class="goog-menuitem">Bla...</div>
+  </div>
+
+  <script src="submenus2.js" type="text/javascript"></script>
+  <script>
+        submenus2.setup();
+  </script>
+</body>
+</html>
