@@ -1,13 +1,16 @@
-(ns demos
+(ns demos 
   (:require
-    [goog.dom :as g-dom]
-    ;[goog.dom.query :as dom-query]
-    [clojure.browser.dom :as dom]))
+    [goog.events :as g-event]
+    [goog.dom :as dom]))
 
 (defn ^:export setup []
-  (let [all-demos (goog.dom.query. "ul > li > a.inactive")]
-        ;  this.slides = goog.dom.query( ‘#’ + slideshow + ‘ > ul > li’ );
-    (doseq [links all-demos]
-      (.listen goog.events links
-                            goog.events.EventType.CLICK
-                           (fn [e] (js/alert "why") )))))
+  (let [all-demos (dom/getElementsByClass "demo")]
+    (doseq [i (range (.length all-demos))]
+      (let [elem (. all-demos (item i))
+            href (. elem (getAttribute "href"))]
+        (if (.. elem className (match (js/RegExp (str "(\\s|^)" "inactive" "(\\s|$)"))))
+            (dom/setProperties elem (.strobj {"href" nil})))))))
+;            (do (.listen goog.events 
+;                         elem
+;                         goog.events.EventType.CLICK
+;                         (fn [e] (js/alert "why") )) ))))))
