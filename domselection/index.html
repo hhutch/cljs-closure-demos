@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+<title></title>
+<style>
+
+label {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<label>selectionStart <input type="text" id="selectionStart1"></label>
+<label>selectionEnd <input type="text" id="selectionEnd1"></label>
+<label>selectionText <input type="text" id="selectionText1"></label>
+<button id="button1">Update Textarea</button><br>
+
+<textarea id="textField1"></textarea>
+
+
+<label>selectionStart <input type="text" id="selectionStart2"></label>
+<label>selectionEnd <input type="text" id="selectionEnd2"></label>
+<label>selectionText <input type="text" id="selectionText2"></label>
+<button id="button2">Update Input</button><br>
+<input type="text" id="textField2">
+
+<script src="domselection.js" type="text/javascript"></script>
+<script>
+  domselection.setup();
+</script>
+
+</body>
+</html>
