@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.ui.CharPicker</title>
+  <meta charset=utf-8>
+  <!-- common css used by all closure demos; not required for char picker -->
+  <link rel="stylesheet" href="../css/demo.css">
+
+  <!-- used only for button in this page; not required for char picker-->
+  <link rel="stylesheet" href="../css/menubutton.css">
+
+  <!-- only required css for char picker -->
+  <link rel="stylesheet" href="../css/charpicker.css">
+
+  <style>
+    #p1_value {
+      color: red;
+      font-weight: bold;
+      font-size: large;
+    }
+
+    p {
+      height: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>goog.ui.CharPicker</h1>
+  <p>You have selected: <span id="p1_value">none</span>
+  <div id="char-picker"></div>
+
+  <p>
+    <input type="button" value="Dispose">
+  </p>
+
+  <script src="charpicker.js" type="text/javascript"></script>
+  <script>
+    charpicker.setup();
+  </script>
+
+</body>
+</html>
