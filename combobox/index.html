@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.ui.ComboBox</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/menuitem.css">
+  <link rel="stylesheet" href="../css/menuseparator.css">
+  <link rel="stylesheet" href="../css/combobox.css">
+  <style>
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+  }
+
+  #log {
+    position: absolute;
+    top: 0px;
+    width: 50%;
+    right: 0%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  #c {
+    margin-bottom: 10px;
+    font-size: small;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>goog.ui.ComboBox</h1>
+  <div id="c">cb.value = '<span id="v"></span>'</div>
+
+  <div id="combo1" class="use-arrow"></div>
+  <div>&nbsp;</div>
+
+  <div id="combo2"></div>
+  <p>
+    <a id="clearlog">Clear Log</a>
+  </p>
+  <div id="log"></div>
+
+  <script src="combobox.js" type="text/javascript"></script>
+  <script>
+    combobox.setup();
+  </script>
+</body>
+</html>

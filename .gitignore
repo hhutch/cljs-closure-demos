@@ -6,3 +6,4 @@ classes/
 out/
 .lein-failures
 .lein-deps-sum
+_site/
