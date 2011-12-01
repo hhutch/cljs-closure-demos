@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.userAgent</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <style>
+    th {
+      text-align: left;
+      font-weight: normal;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 2em;
+    }
+
+    tbody td {
+      text-align: center;
+    }
+
+    .container {
+      margin: 1em 3em 1em 0;
+      vertical-align: top;
+    }
+
+    .section {
+      font-weight: bold;
+      font-size: 1.2em;
+      border-bottom: 1px solid #ccc;
+      padding-top: 0.5em;
+    }
+
+    .no {
+      background: #efefef;
+    }
+
+    .yes {
+      background: #ddf8cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>goog.userAgent</h1>
+
+  <div class="goog-inline-block container">
+    <table>
+      <tbody id="browserFields">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="goog-inline-block container">
+    <table style="display:inline-table">
+      <tbody id="featureFields">
+      </tbody>
+    </table>
+  </div>
+
+  <script src="useragent.js" type="text/javascript"></script>
+  <script>
+    useragent.setup();
+  </script>
+
+</body>
+</html>
