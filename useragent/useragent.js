@@ -8158,9 +8158,18 @@ var useragent = {clj__GT_js:function clj__GT_js(b) {
 }};
 useragent.add_section = function(a, b, c, d) {
   goog.dom.appendChild.call(null, a, goog.dom.createDom.call(null, "tr", null, goog.dom.createDom.call(null, "th", useragent.clj__GT_js.call(null, cljs.core.ObjMap.fromObject(["colspan", "class"], {colspan:2, "class":"section"})), b)));
-  return goog.array.forEach.call(null, d, function(b) {
-    return useragent.add_value.call(null, a, b.toLowerCase(), c, cljs.core.Vector.fromArray([b]))
-  })
+  d = cljs.core.seq.call(null, d);
+  if(cljs.core.truth_(d)) {
+    for(b = cljs.core.first.call(null, d);;) {
+      if(useragent.add_value.call(null, a, b.toLowerCase(), c[b]), b = cljs.core.next.call(null, d), cljs.core.truth_(b)) {
+        d = b, b = cljs.core.first.call(null, d)
+      }else {
+        return null
+      }
+    }
+  }else {
+    return null
+  }
 };
 useragent.setup = function() {
   var a = useragent.clj__GT_js.call(null, cljs.core.Vector.fromArray(["LINUX", "MAC", "WINDOWS", "X11", "PLATFORM"])), b = useragent.clj__GT_js.call(null, cljs.core.Vector.fromArray(["GECKO", "IE", "OPERA", "WEBKIT", "VERSION"])), c = useragent.clj__GT_js.call(null, cljs.core.Vector.fromArray("ANDROID,CAMINO,CHROME,FIREFOX,IE,IPAD,IPHONE,OPERA,SAFARI,VERSION".split(","))), d = useragent.clj__GT_js.call(null, cljs.core.Vector.fromArray(["HAS_FLASH", "VERSION"])), e = useragent.clj__GT_js.call(null, 

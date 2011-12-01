@@ -26,13 +26,11 @@
     (coll? x) (apply array (map clj->js x))
     :else x))
 
-;(comment
-;   * Adds a name/value row to the table.
-;   * @param {Element} parent The table body to append the row to
-;   * @param {string} name The name of the property
-;   * @param {string|boolean} value The value to display
-;)
 (defn add-value 
+  "  # Adds a name/value row to the table.
+     # @param {Element} parent The table body to append the row to
+     # @param {string} name The name of the property
+     # @param {string|boolean} value The value to display "
   [parent name value] 
   (let [row (dom/createElement "tr")
         name-cell (dom/createDom "th" nil name)
@@ -49,22 +47,22 @@
             (if (not value)
                 (.. goog.dom classes (set value-cell "no")) )))))
 
-;(comment
-;   * Adds a list of user-agent properties and their values to the output table.
-;   * @param {Element} parent The table body to append new rows to
-;   * @param {string} title The header for this table section
-;   * @param {Object} ns The Closure namespace to read properties from
-;   * @param {Array.<string>} A list of properties to read from that namespace
-;)  
 (defn add-section 
+  "  * Adds a list of user-agent properties and their values to the output table.
+     * @param {Element} parent The table body to append new rows to
+     * @param {string} title The header for this table section
+     * @param {Object} ns The Closure namespace to read properties from
+     * @param {Array.<string>} A list of properties to read from that namespace "
   [parent title cl-ns properties] 
   (dom/appendChild parent (dom/createDom "tr" nil
                             (dom/createDom "th"
                               (clj->js {"colspan" 2 "class" "section"})
                               title)))
+  (doseq [p properties]
+    (add-value parent (. p (toLowerCase)) (aget cl-ns p))))
 
-  (goog-array/forEach properties
-    (fn [p] (add-value parent (. p (toLowerCase)) cl-ns[p]))) )
+  ;(goog-array/forEach properties
+  ;  (fn [p] (add-value parent (. p (toLowerCase)) cl-ns[p]))) )
 
 (defn ^:export setup []
   (let [platform-fields (clj->js [ "LINUX" "MAC" "WINDOWS" "X11" "PLATFORM" ]) 
