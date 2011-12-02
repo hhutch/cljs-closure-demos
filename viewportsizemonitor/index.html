@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.dom.ViewportSizeMonitor</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <style>
+    html, body {
+      margin: 0;
+      border: 0;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    div#demo {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    span#current_size {
+      font: bold 9pt Arial, Helvetica, sans-serif;
+      color: #333;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>goog.dom.ViewportSizeMonitor</h1>
+  <div id="demo">
+    Current Size: <span id="current_size">Loading...</span>
+  </div>
+
+  <script src="viewportsizemonitor.js" type="text/javascript"></script>
+  <script>
+    viewportsizemonitor.setup();
+  </script>
+
+</body>
+</html>
