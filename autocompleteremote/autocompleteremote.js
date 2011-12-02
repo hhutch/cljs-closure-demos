@@ -13002,7 +13002,7 @@ cljs.core.prefers = function(a) {
 var autocompleteremote = {setup:function() {
   var a = goog.dom.getElement.call(null, "txtInput");
   new goog.ui.AutoComplete.Remote("autocompleteremotedata.js", a);
-  return alert.call(null, "wha?")
+  return null
 }};
 goog.exportSymbol("autocompleteremote.setup", autocompleteremote.setup);
 
