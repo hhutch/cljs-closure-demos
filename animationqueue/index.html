@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2007 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+  <head>
+    <style>
+      .block {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block1" class="block" style="left:  5px; top: 5px"></div>
+    <div id="block2" class="block" style="left: 10px; top: 5px"></div>
+    <div id="block3" class="block" style="left: 15px; top: 5px"></div>
+    <div id="block4" class="block" style="left: 20px; top: 5px"></div>
+    <div id="block5" class="block" style="left: 25px; top: 5px"></div>
+    <div style="margin-top:70px">
+      <a id="play-parallel" href="#">play parallel</a> |
+      <a id="play-serial" href="#">play serial</a> | <br/>
+      <a id="pause" href="#">pause</a> |
+      <a id="resume" href="#">resume</a> |
+      <a id="restart" href="#">resume + restart</a>
+    </div>
+
+  <script src="animationqueue.js" type="text/javascript"></script>
+  <script>
+    animationqueue.setup();
+  </script>
+
+  </body>
+</html>
