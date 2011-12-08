@@ -10284,12 +10284,36 @@ var animationqueue = {clj__GT_js:function clj__GT_js(b) {
     var e = cljs.core.nth.call(null, d, 0, null), f = cljs.core.nth.call(null, d, 1, null);
     return cljs.core.assoc.call(null, b, clj__GT_js.call(null, e), clj__GT_js.call(null, f))
   }, cljs.core.ObjMap.fromObject([], {}), b).strobj : cljs.core.truth_(cljs.core.coll_QMARK_.call(null, b)) ? cljs.core.apply.call(null, cljs.core.array, cljs.core.map.call(null, clj__GT_js, b)) : cljs.core.truth_("\ufdd0'else") ? b : null
+}, setup:function() {
+  var a = cljs.core.atom.call(null, false);
+  cljs.core.atom.call(null, cljs.core.Vector.fromArray([]));
+  var b = new goog.fx.AnimationParallelQueue, c = new goog.fx.AnimationParallelQueue, d = new goog.fx.AnimationSerialQueue, e = new goog.fx.AnimationSerialQueue, f = function(a, b, c, d) {
+    return new goog.fx.dom.Slide(goog.dom.getElement.call(null, cljs.core.str.call(null, "block", c)), Array.call(null, a, 5), Array.call(null, b, 50), d, goog.fx.easing.easeOut)
+  };
+  b.add(f.call(null, 5, 55, 1, 2E3));
+  b.add(f.call(null, 10, 60, 2, 2E3));
+  b.add(f.call(null, 15, 65, 3, 2E3));
+  b.add(f.call(null, 20, 70, 4, 2E3));
+  b.add(f.call(null, 25, 75, 5, 2E3));
+  c.add(f.call(null, 55, 5, 1, 2E3));
+  c.add(f.call(null, 60, 10, 2, 2E3));
+  c.add(f.call(null, 65, 15, 3, 2E3));
+  c.add(f.call(null, 70, 20, 4, 2E3));
+  c.add(f.call(null, 75, 25, 5, 2E3));
+  d.add(f.call(null, 5, 55, 1, 400));
+  d.add(f.call(null, 10, 60, 2, 400));
+  d.add(f.call(null, 15, 65, 3, 400));
+  d.add(f.call(null, 20, 70, 4, 400));
+  d.add(f.call(null, 25, 75, 5, 400));
+  e.add(f.call(null, 55, 5, 1, 400));
+  e.add(f.call(null, 60, 10, 2, 400));
+  e.add(f.call(null, 65, 15, 3, 400));
+  e.add(f.call(null, 70, 20, 4, 400));
+  e.add(f.call(null, 75, 25, 5, 400));
+  return goog.events.listen(goog.dom.getElement.call(null, "play-parallel"), goog.events.EventType.ClICK, function() {
+    cljs.core.truth_(cljs.core._EQ_.call(null, cljs.core.deref.call(null, a), true)) ? c.play() : b.play();
+    return cljs.core.swap_BANG_.call(null, a, cljs.core.not)
+  }.call(null))
 }};
-animationqueue.setup = function() {
-  cljs.core.atom.call(null, false);
-  var a = new goog.fx.AnimationParallelQueue;
-  a.add(goog.fx.dom.Slide(goog.dom.getElement.call(null, "block1"), animationqueue.clj__GT_js.call(null, cljs.core.Vector.fromArray([5, 5])), animationqueue.clj__GT_js.call(null, cljs.core.Vector.fromArray([55, 50])), 2E3, goog.fx.easing.easeOut));
-  return a
-};
 goog.exportSymbol("animationqueue.setup", animationqueue.setup);
 
