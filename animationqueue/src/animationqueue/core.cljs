@@ -24,68 +24,63 @@
   (let [sx 5
         sy 5
         is-forward (atom false)
-        currently-playing (atom [])
+        currently-playing (atom 0)
         parallel-forward (goog.fx.AnimationParallelQueue.)
         parallel-backward (goog.fx.AnimationParallelQueue.)
         serial-forward (goog.fx.AnimationSerialQueue.)
         serial-backward (goog.fx.AnimationSerialQueue.)
-        all-slide (fn [x1 x2 block-num anim-duration]
-                          (new fx-dom/Slide 
-                            (dom/getElement (str "block" block-num))
-                            (js/Array x1 5) 
-                            (js/Array x2 50) 
-                            anim-duration
-                            (.. goog.fx easing easeOut)))
+        all-slide (fn [s t block-num anim-duration]
+                      (let [[sx sy] s
+                            [tx ty] t]
+                        (new fx-dom/Slide 
+                          (dom/getElement (str "block" block-num))
+                          (js/Array sx sy) 
+                          (js/Array tx ty) 
+                          anim-duration
+                          (.. goog.fx easing easeOut))))
         demo-parallel (fn []
-                       (if (= @is-forward true)
+                       (if (true? @is-forward)
                            (do (. parallel-backward (play))
-                               (swap! @currently-playing assoc 0 parallel-backward))
+                               (reset! currently-playing parallel-backward))
                            (do (. parallel-forward (play))
-                               (swap! @currently-playing assoc 0 parallel-forward)))
+                               (reset! currently-playing parallel-forward)))
                         (swap! is-forward not))
-        demo-serial   (fn []
-                       (if (= @is-forward true)
+        demo-serial   (fn [e]
+                       (if (true? @is-forward)
                            (do (. serial-backward (play))
-                               (swap! @currently-playing assoc 0 serial-backward))
+                               (reset! currently-playing serial-backward))
                            (do (. serial-forward (play))
-                               (swap! @currently-playing assoc 0 serial-forward)))
+                               (reset! currently-playing serial-forward)))
                         (swap! is-forward not))
-        pause (fn [] (. (get @currently-playing 0) (pause)))
-        resume (fn [do-restart] (. (get @currently-playing 0) (pause do-restart)))
-       ]
+        pause (fn [] (. @currently-playing (pause)))
+        resume (fn [do-restart] (. @currently-playing (play do-restart))) ]
        
-    ;; move forward at the same time
-    (doto parallel-forward
-        (.add (all-slide 5 55 1 2000))
-        (.add (all-slide 10 60 2 2000))
-        (.add (all-slide 15 65 3 2000))
-        (.add (all-slide 20 70 4 2000))
-        (.add (all-slide 25 75 5 2000)))
+    (doseq [i [{:fwd parallel-forward :dur 2000}
+               {:fwd serial-forward :dur 400}]
+            :let [{:keys [fwd dur]} i]]
+      (doto fwd 
+          (.add (all-slide [5 5] [55 50] 1 dur))
+          (.add (all-slide [10 5] [60 50] 2 dur))
+          (.add (all-slide [15 5] [65 50] 3 dur))
+          (.add (all-slide [20 5] [70 50] 4 dur))
+          (.add (all-slide [25 5] [75 50] 5 dur))))
 
-    (doto parallel-backward
-        (.add (all-slide 55 5 1 2000))
-        (.add (all-slide 60 10 2 2000))
-        (.add (all-slide 65 15 3 2000))
-        (.add (all-slide 70 20 4 2000))
-        (.add (all-slide 75 25 5 2000)))
+    (doseq [i [{:bkwd parallel-backward :dur 2000}
+               {:bkwd serial-backward :dur 400}]
+            :let [{:keys [bkwd dur]} i]]
+      (doto bkwd
+          (.add (all-slide [55 50] [5 5] 1 dur))
+          (.add (all-slide [60 50] [10 5] 2 dur))
+          (.add (all-slide [65 50] [15 5] 3 dur))
+          (.add (all-slide [70 50] [20 5] 4 dur))
+          (.add (all-slide [75 50] [25 5] 5 dur))))
 
-    (doto serial-forward
-        (.add (all-slide 5 55 1 400))
-        (.add (all-slide 10 60 2 400))
-        (.add (all-slide 15 65 3 400))
-        (.add (all-slide 20 70 4 400))
-        (.add (all-slide 25 75 5 400)))
-
-    (doto serial-backward
-        (.add (all-slide 55 5 1 400))
-        (.add (all-slide 60 10 2 400))
-        (.add (all-slide 65 15 3 400))
-        (.add (all-slide 70 20 4 400))
-        (.add (all-slide 75 25 5 400)))
-
-     (.listen goog.events 
-              (dom/getElement "play-parallel")
-              goog.events.EventType.ClICK
-              (demo-parallel))
-  )
-)
+    (doseq [i [{:elem "play-parallel" :fun demo-parallel}
+               {:elem "play-serial" :fun demo-serial}
+               {:elem "pause" :fun pause}
+               {:elem "resume" :fun (fn [e] (resume false)) }
+               {:elem "restart" :fun (fn [e] (resume true)) }]
+            :let [{:keys [elem fun]} i]]
+      (.listen goog.events (dom/getElement elem)
+                           goog.events.EventType.CLICK
+                          fun)) ))
