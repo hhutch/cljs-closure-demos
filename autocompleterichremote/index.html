@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2007 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<!--
+-->
+<head>
+  <title>goog.ui.AutoComplete.RichRemote</title>
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/autocomplete.css">
+  <style type="text/css">
+    .apple {
+      background-color: #990033;
+      color: #FFFFFF;
+      margin: 3px;
+      font-style: italic;
+    }
+
+    .citrus {
+      background-color: #CCCC33;
+      color: #FFFFFF;
+      margin: 3px;
+      font-style: italic;
+    }
+
+    .berry {
+      background-color: #009933;
+      color: #FFFFFF;
+      margin: 3px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>goog.ui.AutoComplete.RichRemote</h1>
+  <p>
+    Fruit Selector:<br>
+    <input type="text" id="txtInput" style="width:500px"/>
+    <input type="checkbox" id="berryAllergy" onclick="setFilter()"/>
+    <label for="berryAllergy">berry allergy</label>
+    <input type="checkbox" id="setHighlighting"
+        onclick="setHighlighting()"/>
+    <label for="setHighlighting">standard highlighting</label>
+    <p>
+      This data is being pulled from the server at
+      <a href="autocompleterichremotedata.js">autocompleterichremotedata.js</a>.
+    </p>
+    <p>
+      Ideally the server would perform a search on the query and would only
+      return relevant results; however, this response is static.
+    </p>
+  </p>
+
+  <iframe id="wikipedia" width="900" height="600"></iframe>
+
+  <script src="autocompleterichremote.js" type="text/javascript"></script>
+  <script>
+    autocompleterichremote.setup();
+  </script>
+
+</body>
+</html>
