@@ -31,5 +31,10 @@
                         :compiler {:output-to "resources/public/cljs/bubble.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :charcounter
+                       {:source-path "src-cljs/charcounter"
+                        :compiler {:output-to "resources/public/cljs/charcounter.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})
