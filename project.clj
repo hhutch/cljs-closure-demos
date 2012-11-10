@@ -20,5 +20,11 @@
                        {:source-path "src-cljs/animationqueue"
                         :compiler {:output-to "resources/public/cljs/animationqueue.js"}
                         :optimizations :whitespace
-                        :pretty-print true}}
-              })
+                        :pretty-print true}
+                       :gauge
+                       {:source-path "src-cljs/gauge"
+                        :compiler {:output-to "resources/public/cljs/gauge.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+
+}})
