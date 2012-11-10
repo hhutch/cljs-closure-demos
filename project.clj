@@ -41,4 +41,9 @@
                         :compiler {:output-to "resources/public/cljs/charpicker.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :progressbar
+                       {:source-path "src-cljs/progressbar"
+                        :compiler {:output-to "resources/public/cljs/progressbar.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
