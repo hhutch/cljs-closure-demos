@@ -10,5 +10,10 @@
                        {:source-path "src-cljs/advancedtooltip"
                         :compiler {:output-to "resources/public/cljs/advancedtooltip.js"}
                         :optimizations :whitespace
+                        :pretty-print true}
+                       :autocompletebasic
+                       {:source-path "src-cljs/autocomplete_basic"
+                        :compiler {:output-to "resources/public/cljs/autocompletebasic.js"}
+                        :optimizations :whitespace
                         :pretty-print true}}
               })

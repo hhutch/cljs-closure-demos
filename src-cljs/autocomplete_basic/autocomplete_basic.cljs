@@ -1,8 +1,8 @@
 (ns autocompletebasic
   (:require
-    [clojure.browser.dom :as dom]
-    [goog.ui.AutoComplete :as auto-complete]
-    [goog.ui.AutoComplete.Basic :as ac-basic]))
+   [clojure.browser.dom :as dom]
+   [goog.ui.AutoComplete :as auto-complete]
+   [goog.ui.AutoComplete.Basic :as ac-basic]))
 
 (defn ^:export setup []
   (let [tcMovies (apply array ["Mission Impossible" "Top Gun" "Jerry McGuire"
