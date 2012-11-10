@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<!--[if lt IE 9]>
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+    </head>
+    <body>
+	<h1>goog.ui.AdvancedTooltip</h1>
+	<fieldset class="goog-debug-panel" style="display:none">
+	    <legend>Event Log</legend>
+	    <div id="log"></div>
+	</fieldset>
+
+	<p>
+	    <button id="btn">Hover me</button>
+	</p>
+
+	<script src="cljs/advancedtooltip.js" type="text/javascript"></script>
+	<script>
+	    advancedtooltip.prepenvironment();
+	    advancedtooltip.buildtooltip("btn","ttip");
+	</script>
+    </body>
+</html>

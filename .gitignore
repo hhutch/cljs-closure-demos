@@ -6,4 +6,9 @@ classes/
 out/
 .lein-failures
 .lein-deps-sum
+.lein-cljsbuild*
 _site/
+*~
+#*#
+
+resources/public/cljs/
