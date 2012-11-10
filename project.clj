@@ -26,5 +26,10 @@
                         :compiler {:output-to "resources/public/cljs/gauge.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :bubble
+                       {:source-path "src-cljs/bubble"
+                        :compiler {:output-to "resources/public/cljs/bubble.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})
