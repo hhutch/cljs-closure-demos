@@ -21,16 +21,23 @@
 (defn black-or-white []
    (let [color-input (dom/getElement "color")
          preview-element (dom/getElement "preview")
-         bg-rgb (. goog.color (hexToRgbStyle (str "#" (.value color-input))))
+         bg-rgb (. goog.color (hexToRgbStyle (str "#" (.-value color-input))))
          bg-rgb-arr (. goog.color (parseRgb bg-rgb))
          best-color (. goog.color (highContrast bg-rgb-arr (clj->js [[0 0 0] [255 255 255]])))
          best-color-hex (. goog.color (rgbArrayToHex best-color)) ]
      (. js/console (info (str best-color-hex " wins on sum")))
-     (set! (.. preview-element style backgroundColor) (str "#" (.value color-input)))
-     (set! (.. preview-element style color) best-color-hex) ))
+     (set! (.. preview-element 
+               -style
+               -backgroundColor) 
+           (str "#" (.-value color-input)))
+     (set! (.. preview-element
+               -style
+               -color) 
+           best-color-hex) ))
 
 (defn ^:export setup []
  (.listen goog.events
           (dom/getElement "submit")
           goog.events.EventType.CLICK
-          (fn [e] (black-or-white))) )
+          (fn [e] (black-or-white))) 
+)

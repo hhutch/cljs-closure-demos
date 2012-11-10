@@ -46,4 +46,10 @@
                         :compiler {:output-to "resources/public/cljs/progressbar.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :colorcontrast
+                       {:source-path "src-cljs/colorcontrast"
+                        :compiler {:output-to "resources/public/cljs/colorcontrast.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+
 }})
