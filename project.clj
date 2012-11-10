@@ -51,5 +51,10 @@
                         :compiler {:output-to "resources/public/cljs/colorcontrast.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :colorpicker
+                       {:source-path "src-cljs/colorpicker"
+                        :compiler {:output-to "resources/public/cljs/colorpicker.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})

@@ -10,11 +10,11 @@
              picker02
              goog.ui.ColorPicker.EventType.CHANGE
              (fn [e]
-               (let [color (or (.. e target (getSelectedColor))
+               (let [color (or (.. e -target getSelectedColor)
                                "#000000")
                      el (dom/getElement "picker02message")]
-                 (set! (.innerHTML el) (str "You selected: " color))
-                 (set! (.. el style color) color) )))
+                 (set! (.-innerHTML el) (str "You selected: " color))
+                 (set! (.. el -style -color) color) )))
     (.listen goog.events (dom/getWindow)
              "unload"
              (fn [e] (. goog.events (removeAll)))) ))
