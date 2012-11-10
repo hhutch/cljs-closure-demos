@@ -56,5 +56,9 @@
                         :compiler {:output-to "resources/public/cljs/colorpicker.js"}
                         :optimizations :whitespace
                         :pretty-print true}
-
+                       :datepicker
+                       {:source-path "src-cljs/datepicker"
+                        :compiler {:output-to "resources/public/cljs/datepicker.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
