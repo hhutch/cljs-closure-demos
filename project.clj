@@ -36,5 +36,9 @@
                         :compiler {:output-to "resources/public/cljs/charcounter.js"}
                         :optimizations :whitespace
                         :pretty-print true}
-
+                       :charpicker
+                       {:source-path "src-cljs/charpicker"
+                        :compiler {:output-to "resources/public/cljs/charpicker.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
