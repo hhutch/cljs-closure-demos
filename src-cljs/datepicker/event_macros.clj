@@ -18,3 +18,11 @@
                  (if (.-date event#)
                    (.. event# -date (~'toIsoString true)) 
                    "none")))))
+
+(defmacro render-calendar
+  [target-elem label-elem date-profile] 
+  `(do
+     (. ~date-profile (~'render (dom/getElement ~target-elem)))
+     (listen-for-calendar-change ~label-elem ~date-profile)
+     (dom/setTextContent (dom/getElement ~label-elem)
+                       (.. ~date-profile ~'getDate (~'toIsoString true)))))

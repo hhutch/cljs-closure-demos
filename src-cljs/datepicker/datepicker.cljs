@@ -10,7 +10,8 @@
     [goog.i18n.DateTimeSymbols_ar_YE :as goog-dt-ye]
     [goog.ui.DatePicker :as goog-picker])
   (:use-macros [event-macros :only [listen-for-checkbox-click
-                                    listen-for-calendar-change]]))
+                                    listen-for-calendar-change
+                                    render-calendar]]))
 
 
 (defn ^:export setup []
@@ -20,16 +21,13 @@
         dp-de (goog.ui.DatePicker. nil goog.i18n.DateTimeSymbols_de)
         dp-ml (goog.ui.DatePicker. nil goog.i18n.DateTimeSymbols_ml)
         dp-ar-YE (goog.ui.DatePicker. nil goog.i18n.DateTimeSymbols_ar_YE)]
+
     ;; ## Standard: ISO 8601
-    (. dp-iso-8601 (render (dom/getElement "widget_iso_8601")))
-    (listen-for-calendar-change "label_iso_8601" dp-iso-8601)
-    (dom/setTextContent (dom/getElement "label_iso_8601")
-                    (.. dp-iso-8601 (getDate) (toIsoString true)))
+    (render-calendar "widget_iso_8601" "label_iso_8601" dp-iso-8601)
+
     ;; ## Custom
-    (. dp-custom (render (dom/getElement "widget_custom")))
-    (listen-for-calendar-change "label_custom" dp-custom)
-    (dom/setTextContent (dom/getElement "label_custom")
-                    (.. dp-iso-8601 (getDate) (toIsoString true)))
+    (render-calendar "widget_custom" "label_custom" dp-custom)
+
     (listen-for-checkbox-click "ck-0" setShowFixedNumWeeks dp-custom)
     (listen-for-checkbox-click "ck-1" setShowOtherMonths dp-custom)
     (listen-for-checkbox-click "ck-2" setExtraWeekAtEnd dp-custom)
@@ -41,25 +39,14 @@
     (listen-for-checkbox-click "ck-8" setUseSimpleNavigationMenu dp-custom)
 
     ;; ## English (US)
-    (. dp-en-US (render (dom/getElement "widget_en_US")))
-    (listen-for-calendar-change "label_en_US" dp-en-US)
-    (dom/setTextContent (dom/getElement "label_en_US")
-                        (.. dp-en-US (getDate) (toIsoString true)))
+    (render-calendar "widget_en_US" "label_en_US" dp-en-US)
 
     ;; ## German 
-    (. dp-de (render (dom/getElement "widget_de")))
-    (listen-for-calendar-change "label_de" dp-de)
-    (dom/setTextContent (dom/getElement "label_de")
-                    (.. dp-de (getDate) (toIsoString true)))
+    (render-calendar "widget_de" "label_de" dp-de)
 
     ;; ## Malayalam
-    (. dp-ml (render (dom/getElement "widget_ml")))
-    (listen-for-calendar-change "label_ml" dp-ml)
-    (dom/setTextContent (dom/getElement "label_ml")
-                    (.. dp-ml (getDate) (toIsoString true)))
+    (render-calendar "widget_ml" "label_ml" dp-ml)
 
     ;; ## Arabic (Yemen)
-    (. dp-ar-YE (render (dom/getElement "widget_ar_YE")))
-    (listen-for-calendar-change "label_ar_YE" dp-ar-YE)
-    (dom/setTextContent (dom/getElement "label_ar_YE")
-                    (.. dp-ar-YE (getDate) (toIsoString true))) ))
+    (render-calendar "widget_ar_YE" "label_ar_YE" dp-ar-YE)
+    ))
