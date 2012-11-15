@@ -126,4 +126,10 @@
                         :compiler {:output-to "resources/public/cljs/keyboardshortcuts.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :hsvapalette
+                       {:source-path "src-cljs/hsvapalette"
+                        :compiler {:output-to "resources/public/cljs/hsvapalette.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+                      
 }})
