@@ -13,7 +13,7 @@
         el2 (dom/get-element "combo2")
         cb2 (goog.ui.ComboBox.)
         caption (goog.ui.ComboBoxItem. "Select a Color...")]
-    (.. goog.debug LogManager (getRoot) (setLevel goog.debug.Logger.Level.ALL))
+    (.. goog.debug -LogManager getRoot (setLevel goog.debug.Logger.Level.ALL))
     (. log-console (setCapturing true))
     (. newfolder (setSticky true))
     (doto cb
@@ -51,14 +51,15 @@
     
     (.listen goog.events
            cb "change"
-           (fn [e] (. goog.dom (setTextContent (dom/get-element "v") (.. e target (getValue))))))
+           (fn [e] (. goog.dom (setTextContent (dom/get-element "v") (.. e -target (getValue))))))
     (.listen goog.events
            cb2 "change"
-           (fn [e] (. goog.dom (setTextContent (dom/get-element "v") (.. e target (getValue))))))
+           (fn [e] (. goog.dom (setTextContent (dom/get-element "v") (.. e -target (getValue))))))
     (.listen goog.events
            (dom/get-element "clearlog")
            goog.events.EventType.CLICK
-           (fn [e] (. log-console (clear))))
+           (fn [e] (. log-console clear)))
 
     ;(set! (. js/window (onbeforeunload)) (fn [] (. cb (dispose)) (. cb2 (dispose))))
 ))
+

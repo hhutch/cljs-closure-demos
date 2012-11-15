@@ -61,4 +61,10 @@
                         :compiler {:output-to "resources/public/cljs/datepicker.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :combobox
+                       {:source-path "src-cljs/combobox"
+                        :compiler {:output-to "resources/public/cljs/combobox.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+
 }})
