@@ -66,5 +66,10 @@
                         :compiler {:output-to "resources/public/cljs/combobox.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :domselection
+                       {:source-path "src-cljs/domselection"
+                        :compiler {:output-to "resources/public/cljs/domselection.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})
