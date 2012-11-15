@@ -91,5 +91,11 @@
                         :compiler {:output-to "resources/public/cljs/slider.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :submenus2
+                       {:source-path "src-cljs/submenus2"
+                        :compiler {:output-to "resources/public/cljs/submenus2.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+
 
 }})

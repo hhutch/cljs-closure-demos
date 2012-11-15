@@ -28,8 +28,8 @@
         cbd (goog.ui.SubMenu. "More")
         ccc (goog.ui.MenuItem. "CcCcCcCcCcCc")]
     (. menu (attach (dom/getElement "button")
-                    (.BOTTOM_LEFT goog.positioning.Corner)
-                    (.TOP_LEFT goog.positioning.Corner)))
+                    (.-BOTTOM_LEFT goog.positioning.Corner)
+                    (.-TOP_LEFT goog.positioning.Corner)))
     (. shared-decorated-submenu (decorate (dom/getElement "sharedMenu")))
     ;(. sa (addItem (. goog.ui (MenuItem "Shared sub sub one"))))
     (doto sa (.addItem (goog.ui.MenuItem. "Shared sub sub one"))
@@ -83,9 +83,9 @@
                (.addItem (goog.ui.MenuItem. "DdDdDdDdDdDd")))
 
     (. menu (render))
-    (set! (.id (. menu (getElement))) "foo")
+    (set! (.-id (. menu (getElement))) "foo")
 
     (. goog.events (listen menu "action"
                      (fn [e]
-                       (let [action (.. e target (getCaption))]
+                       (let [action (.. e -target (getCaption))]
                          (js/alert action))))) ))
