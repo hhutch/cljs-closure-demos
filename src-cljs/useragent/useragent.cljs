@@ -81,13 +81,15 @@
         browser (dom/getElement "browserFields")
         features (dom/getElement "featureFields") ]
 
-;    (doseq [[]])
-    (add-section browser "Hardware Platform" goog.userAgent platform-fields)
-    (add-section browser "Renderer" goog.userAgent renderer-fields)
-    (add-section browser "Product" goog.userAgent.product product-fields)
+    (doseq [[title goog-ns fields] [["Hardware Platform" goog.userAgent platform-fields]
+                                    ["Renderer" goog.userAgent renderer-fields]
+                                    ["Product" goog.userAgent.product product-fields]]]
+      (add-section browser title goog-ns fields))
 
-    (add-section features "Adobe Reader Detection" goog.userAgent.adobeReader adobe-reader-fields)
-    (add-section features "Flash Plugin" goog.userAgent.flash flash-fields)
-    (add-section features "iPhoto Detection" goog.userAgent.iphoto iphoto-fields)
-    (add-section features "Microsoft JScript" goog.userAgent.jscript jscript-fields)
-    (add-section features "Picasa Detection" goog.userAgent.picasa picasa-fields)))
+    (doseq [[title goog-ns fields] [["Adobe Reader Detection" goog.userAgent.adobeReader adobe-reader-fields]
+                                    [ "Flash Plugin" goog.userAgent.flash flash-fields]
+                                    [ "iPhoto Detection" goog.userAgent.iphoto iphoto-fields]
+                                    [ "Microsoft JScript" goog.userAgent.jscript jscript-fields]
+                                    [ "Picasa Detection" goog.userAgent.picasa picasa-fields]]]
+      (add-section features title goog-ns fields))
+))
