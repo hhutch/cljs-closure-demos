@@ -86,5 +86,10 @@
                         :compiler {:output-to "resources/public/cljs/serverchart.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :slider
+                       {:source-path "src-cljs/slider"
+                        :compiler {:output-to "resources/public/cljs/slider.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})
