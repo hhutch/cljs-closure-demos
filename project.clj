@@ -71,5 +71,9 @@
                         :compiler {:output-to "resources/public/cljs/domselection.js"}
                         :optimizations :whitespace
                         :pretty-print true}
-
+                       :drilldownrow
+                       {:source-path "src-cljs/drilldownrow"
+                        :compiler {:output-to "resources/public/cljs/drilldownrow.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
