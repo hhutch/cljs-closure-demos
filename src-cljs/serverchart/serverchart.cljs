@@ -30,7 +30,7 @@
 
     (doto chart
       (.addDataSet (clj->js [5 15 10 25 20 49 10 25 34 25 39 44 49 59 44])  "ff0000")
-      (.addDataSet (clj->js [90 92 98 90 52 54 54 43 72 48 51 72 48 51]  "0000ff"))
+      (.addDataSet (clj->js [90 92 98 90 52 54 54 43 72 48 51 72 48 51]) "0000ff")
       (.setXLabels (clj->js ["Jan" "Feb" "Mar" "Jun" "Jul" "Aug"]))
       (.setLeftLabels (clj->js [0 25 50 75 100]))
       (.setRightLabels (clj->js [0 50 100]))
@@ -48,7 +48,7 @@
       (.render (dom/getElement "test2")) )
     (.listen goog.events
              (dom/getElement "update-finance")
-             goog.events.EventType.CLICK
+             "click"
              (fn [e] (update-finance-chart)))
 
     ;; Pie Chart

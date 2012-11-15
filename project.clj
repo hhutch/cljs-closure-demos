@@ -81,5 +81,10 @@
                         :compiler {:output-to "resources/public/cljs/scrollfloater.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :serverchart
+                       {:source-path "src-cljs/serverchart"
+                        :compiler {:output-to "resources/public/cljs/serverchart.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 
 }})
