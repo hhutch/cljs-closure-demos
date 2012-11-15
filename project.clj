@@ -106,4 +106,9 @@
                         :compiler {:output-to "resources/public/cljs/useragent.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :zippy
+                       {:source-path "src-cljs/zippy"
+                        :compiler {:output-to "resources/public/cljs/zippy.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
