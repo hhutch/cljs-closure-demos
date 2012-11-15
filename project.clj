@@ -121,4 +121,9 @@
                         :compiler {:output-to "resources/public/cljs/labelinput.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :keyboardshortcuts
+                       {:source-path "src-cljs/keyboardshortcuts"
+                        :compiler {:output-to "resources/public/cljs/keyboardshortcuts.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
