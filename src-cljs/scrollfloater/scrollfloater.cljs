@@ -12,17 +12,16 @@
         scroll-floater2 (goog.ui.ScrollFloater.)
         button2 (goog.ui.ToggleButton. "Enable Floater 2") 
         setup-click-handler (fn [ctrl floater]
+                              (. ctrl (setState "checked"))
                               (.listen goog.events
                                        ctrl
-                                       goog.ui.Component.EventType.ACTION
+                                       "action"
                                        (fn [] (. floater (setScrollingEnabled (. ctrl (isChecked))))))) ]
     (. button1 (render (dom/getElement "floater1")))
     (. scroll-floater1 (decorate (dom/getElement "floater1")))
     (. scroll-floater2 (addChild button2 true))
     (. scroll-floater2 (render (dom/getElement "floater2container")))
 
-    (. button1 (setState goog.ui.Component.State.CHECKED))
-    (. button2 (setState goog.ui.Component.State.CHECKED))
     (setup-click-handler button1 scroll-floater1)
     (setup-click-handler button2 scroll-floater2)
   )

@@ -76,4 +76,10 @@
                         :compiler {:output-to "resources/public/cljs/drilldownrow.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :scrollfloater
+                       {:source-path "src-cljs/scrollfloater"
+                        :compiler {:output-to "resources/public/cljs/scrollfloater.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+
 }})
