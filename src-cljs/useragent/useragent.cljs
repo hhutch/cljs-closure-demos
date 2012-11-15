@@ -21,7 +21,7 @@
   (cond
     (string? x) x
     (keyword? x) (name x)
-    (map? x) (.strobj (reduce (fn [m [k v]]
+    (map? x) (.-strobj (reduce (fn [m [k v]]
                (assoc m (clj->js k) (clj->js v))) {} x))
     (coll? x) (apply array (map clj->js x))
     :else x))
@@ -38,14 +38,13 @@
     (dom/appendChild parent row)
     (dom/appendChild row name-cell)
     (dom/appendChild row value-cell)
-    ;(if (or (true? value) (false? value))
-    (if (goog.isBoolean. value)
+    (if (goog.isBoolean value)
         (let [value-truthy (if (true? value) "yes" "no")]
             (dom/setTextContent value-cell value-truthy)
-            (.. goog.dom classes (set value-cell value-truthy)) )
+            (.. goog.dom -classes (set value-cell value-truthy)) )
         (do (dom/setTextContent value-cell value)
             (if (not value)
-                (.. goog.dom classes (set value-cell "no")) )))))
+                (.. goog.dom -classes (set value-cell "no")) )))))
 
 (defn add-section 
   "  * Adds a list of user-agent properties and their values to the output table.
@@ -59,15 +58,16 @@
                               (clj->js {"colspan" 2 "class" "section"})
                               title)))
   (doseq [p properties]
-    (add-value parent (. p (toLowerCase)) (aget cl-ns p))))
-
-  ;(goog-array/forEach properties
-  ;  (fn [p] (add-value parent (. p (toLowerCase)) cl-ns[p]))) )
+    (add-value parent (.toLowerCase p) (aget cl-ns p))))
 
 (defn ^:export setup []
-  (let [platform-fields (clj->js [ "LINUX" "MAC" "WINDOWS" "X11" "PLATFORM" ]) 
-        renderer-fields (clj->js [ "GECKO" "IE" "OPERA" "WEBKIT" "VERSION" ])
-        product-fields (clj->js [ "ANDROID" "CAMINO" "CHROME" "FIREFOX" "IE" "IPAD" "IPHONE" "OPERA" "SAFARI" "VERSION" ])
+  (let [platform-fields (clj->js [ "LINUX" "MAC" 
+                                   "WINDOWS" "X11" "PLATFORM" ]) 
+        renderer-fields (clj->js [ "GECKO" "IE" "OPERA" 
+                                   "WEBKIT" "VERSION" ])
+        product-fields (clj->js [ "ANDROID" "CAMINO" "CHROME" 
+                                  "FIREFOX" "IE" "IPAD" "IPHONE" 
+                                  "OPERA" "SAFARI" "VERSION" ])
         ;; Public members in goog.userAgent.flash
         flash-fields (clj->js [ "HAS_FLASH" "VERSION" ])
         ;; Public members in goog.userAgent.picasa
@@ -81,14 +81,13 @@
         browser (dom/getElement "browserFields")
         features (dom/getElement "featureFields") ]
 
+;    (doseq [[]])
     (add-section browser "Hardware Platform" goog.userAgent platform-fields)
     (add-section browser "Renderer" goog.userAgent renderer-fields)
     (add-section browser "Product" goog.userAgent.product product-fields)
 
-    (add-section features "Adobe Reader Detection" goog.userAgent.adobeReader adobeReader-fields)
+    (add-section features "Adobe Reader Detection" goog.userAgent.adobeReader adobe-reader-fields)
     (add-section features "Flash Plugin" goog.userAgent.flash flash-fields)
     (add-section features "iPhoto Detection" goog.userAgent.iphoto iphoto-fields)
     (add-section features "Microsoft JScript" goog.userAgent.jscript jscript-fields)
-    (add-section features "Picasa Detection" goog.userAgent.picasa picasa-fields)
-  )
-)
+    (add-section features "Picasa Detection" goog.userAgent.picasa picasa-fields)))

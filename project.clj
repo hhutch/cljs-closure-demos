@@ -96,6 +96,14 @@
                         :compiler {:output-to "resources/public/cljs/submenus2.js"}
                         :optimizations :whitespace
                         :pretty-print true}
-
-
+                       :tablesorter
+                       {:source-path "src-cljs/tablesorter"
+                        :compiler {:output-to "resources/public/cljs/tablesorter.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
+                       :useragent
+                       {:source-path "src-cljs/useragent"
+                        :compiler {:output-to "resources/public/cljs/useragent.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
