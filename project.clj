@@ -111,4 +111,9 @@
                         :compiler {:output-to "resources/public/cljs/zippy.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :viewportsizemonitor
+                       {:source-path "src-cljs/viewportsizemonitor"
+                        :compiler {:output-to "resources/public/cljs/viewportsizemonitor.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
