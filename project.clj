@@ -116,4 +116,9 @@
                         :compiler {:output-to "resources/public/cljs/viewportsizemonitor.js"}
                         :optimizations :whitespace
                         :pretty-print true}
+                       :labelinput
+                       {:source-path "src-cljs/labelinput"
+                        :compiler {:output-to "resources/public/cljs/labelinput.js"}
+                        :optimizations :whitespace
+                        :pretty-print true}
 }})
