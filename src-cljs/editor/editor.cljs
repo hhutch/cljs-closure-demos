@@ -17,7 +17,7 @@
 (defn add-link 
   [parent file]
   (let [ss (dom/createDom "link")]
-    (dom/setProperties ss (.strobj {"type" "text/css"
+    (dom/setProperties ss (.-strobj {"type" "text/css"
                                     "rel" "stylesheet"
                                     "href" file}))
     (dom/appendChild parent ss)))
@@ -27,7 +27,7 @@
         prep-css (fn [dir file] (str dir (name file) ".css"))
         head (. head-list (item 0)) ]
        (doseq [css-file-path 
-               (map #(prep-css "../css/" %) 
+               (map #(prep-css "css/" %) 
                     [ :demo :button :dialog :linkbutton :menu :menuitem
                       :menuseparator :tab :tabbar :toolbar 
                       :colormenubutton :palette :colorpalette 
@@ -49,13 +49,26 @@
                                                :SUPERSCRIPT :STRIKE_THROUGH :REMOVE_FORMAT] ))]
 
     (goog.ui.editor.ToolbarController. goog-editor (goog.ui.editor.DefaultToolbar.makeToolbar. 
-                                                   buttons.array (goog.dom.getElement. edit-toolbar-id)))
-    ;(. goog-editor (registerPlugin (new basic-text-formatter)))
-    (apply #(. goog-editor (registerPlugin (new (aget goog.editor.plugins (name %))))) 
-                                                   [:BasicTextFormatter :RemoveFormatting
-                                                    :UndoRedo :ListTabHandler
-                                                    :SpacesTabHandler :EnterHandler
-                                                    :HeaderFormatter :LinkDialogPlugin
-                                                    :LinkBubble])
+                                                   buttons 
+                                                   (goog.dom.getElement. edit-toolbar-id)
+                                                   )
+                                       )
 
-    (. goog-editor (makeEditable)) ))
+    ;(. goog-editor (registerPlugin (new basic-text-formatter)))
+    ;; (apply #(. goog-editor (registerPlugin `(new ~(aget (.. goog.editor -plugins) (name %))))) 
+    ;;        [:BasicTextFormatter :RemoveFormatting
+    ;;         :UndoRedo :ListTabHandler
+    ;;         :SpacesTabHandler :EnterHandler
+    ;;         :HeaderFormatter :LinkDialogPlugin
+    ;;         :LinkBubble])
+
+    (. goog-editor (registerPlugin (goog.editor.plugins.BasicTextFormatter.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.RemoveFormatting.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.UndoRedo.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.ListTabHandler.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.EnterHandler.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.HeaderFormatter.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.LinkDialogPlugin.)))
+    (. goog-editor (registerPlugin (goog.editor.plugins.LinkBubble.)))
+
+    (. goog-editor makeEditable) ))

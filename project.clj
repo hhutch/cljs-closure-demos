@@ -8,7 +8,7 @@
               [:advancedtooltip :animationqueue :autocompletebasic
                :bubble :charcounter :charpicker
                :colorcontrast :colorpicker :combobox
-               :datepicker :domselection :drilldownrow
+               :datepicker :domselection :drilldownrow :editor
                :gauge :hsvapalette :keyboardshortcuts
                :labelinput :progressbar :scrollfloater
                :serverchart :slider :submenus2
