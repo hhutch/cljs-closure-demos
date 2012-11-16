@@ -5,4 +5,4 @@
 
 (defn ^:export setup []
   (let [input (dom/getElement "txtInput")
-        ac (goog.ui.AutoComplete.Remote. "autocompleteremotedata.js" input)] ))
+        ac (goog.ui.AutoComplete.Remote. "autocompleteremotedata.js" input)]))

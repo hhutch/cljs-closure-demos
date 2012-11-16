@@ -10,8 +10,8 @@ See the COPYING file for details.
 -->
 <head>
   <title>goog.ui.AutoComplete</title>
-  <link rel="stylesheet" href="../css/demo.css">
-  <link rel="stylesheet" href="../css/autocomplete.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/autocomplete.css">
 </head>
 <body>
   <h1>goog.ui.AutoComplete</h1>
@@ -20,14 +20,14 @@ See the COPYING file for details.
   <input type="text" id="txtInput" style="width:500px"><br>
   <p>
     This data is being pulled from the server at
-    <a href="autocompleteremotedata.js">autocompleteremotedata.js</a>.
+    <a href="js/autocompleteremotedata.js">autocompleteremotedata.js</a>.
   </p>
   <p>
     Ideally the server would perform a search on the query and would only
     return relevant results; however, this response is static.
   </p>
 
-  <script src="autocompleteremote.js" type="text/javascript"></script>
+  <script src="cljs/autocompleteremote.js" type="text/javascript"></script>
   <script>
     autocompleteremote.setup();
   </script>
