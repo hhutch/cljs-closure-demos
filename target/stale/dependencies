@@ -1,1 +1,0 @@
-([:dependencies [[cljsbuild "0.2.9"] [org.clojure/clojure "1.4.0"]]])
