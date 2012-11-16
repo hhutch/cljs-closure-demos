@@ -6,7 +6,7 @@
                    :optimizations :whitespace
                    :pretty-print true})
               [:advancedtooltip :animationqueue :autocompletebasic
-               :autocompleteremote
+               :autocompleteremote :autocompleterichremote
                :bubble :charcounter :charpicker
                :colorcontrast :colorpicker :combobox
                :datepicker :domselection :drilldownrow :editor
