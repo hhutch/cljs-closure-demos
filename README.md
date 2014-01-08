@@ -11,6 +11,7 @@ Compile using leiningen cljsbuild
 	lein cljsbuild once autocompletebasic
 
 Use a local webserver to view the demos once compiled
+
 	cd resources/public/ && python -m SimpleHTTPServer 8080 &
 	chromium-browser http://localhost:8080/
 	
