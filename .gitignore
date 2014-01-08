@@ -9,6 +9,8 @@ out/
 .lein-cljsbuild*
 _site/
 *~
-#*#
+\#*\#
+.\#*
+target/cljsbuild-compiler-*
 
 resources/public/cljs/

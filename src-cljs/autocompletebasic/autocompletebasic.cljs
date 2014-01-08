@@ -1,8 +1,7 @@
 (ns autocompletebasic
   (:require
-   [clojure.browser.dom :as dom]
-   [goog.ui.AutoComplete :as auto-complete]
-   [goog.ui.AutoComplete.Basic :as ac-basic]))
+   [clojure.browser.dom :refer [get-element]]
+   [goog.ui.ac :as ac]))
 
 (defn ^:export setup []
   (let [tcMovies (apply array ["Mission Impossible" "Top Gun" "Jerry McGuire"
@@ -18,6 +17,6 @@
                                "Outsiders The" "Young Guns" "Top Gun DVD"
                                "Days of Thunder DVD" "Coctail" "Mission Impossible DVD"
                                "Fallen Angels Vol 1" "Don't Look at Me" "Young Guns uncredited"])
-        txtInput1 (dom/get-element "txtInput1")]
-    (def ac1 (goog.ui.AutoComplete.Basic. tcMovies (dom/get-element "txtInput1") false))
-    (def ac2 (goog.ui.AutoComplete.Basic. tcMovies (dom/get-element "txtInput2") true)) ))
+        txtInput1 (get-element "txtInput1")]
+    (def ac1 (ac/createSimpleAutoComplete. tcMovies (get-element "txtInput1") false))
+    (def ac2 (ac/createSimpleAutoComplete. tcMovies (get-element "txtInput2") true))))
