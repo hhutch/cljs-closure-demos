@@ -1,8 +1,8 @@
 (ns autocompleteremote
   (:require
-    [goog.dom :as dom]
-    [goog.ui.AutoComplete.Remote :as ac-remote]))
+   [clojure.browser.dom :refer [get-element]]
+   [goog.ui.ac.Remote :as ac-remote]))
 
 (defn ^:export setup []
-  (let [input (dom/getElement "txtInput")
-        ac (goog.ui.AutoComplete.Remote. "autocompleteremotedata.js" input)]))
+  (let [input (get-element "txtInput")
+        ac (goog.ui.ac.Remote. "js/autocompleteremotedata.js" input)]))
